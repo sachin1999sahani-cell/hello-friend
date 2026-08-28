@@ -669,7 +669,7 @@ function Playbook() {
                   <img
                     src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/appie.jpg"
                     alt="Redbelly team Discord message confirming no RBNT exists on BNB Chain"
-                    className="mt-2 w-full max-w-md rounded-[8px] border border-[#3a4650]"
+                    className="mt-2 w-full max-w-[600px] rounded-[8px] border border-[#3a4650]"
                     loading="lazy"
                   />
                   <p className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
@@ -754,7 +754,7 @@ function Playbook() {
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-6">
               <figure>
                 <img
                   src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/connect%20wallet.jpg"
