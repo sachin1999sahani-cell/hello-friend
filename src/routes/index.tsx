@@ -284,7 +284,7 @@ const CONTRACT_ROWS: {
     source: [
       { text: "Redbelly team, " },
       { label: "official Discord announcement", href: DISCORD_ANNOUNCE },
-      { text: ", 26 May 2026 — also listed on " },
+      { text: ", 26 May 2026 - also listed on " },
       { label: "Vine", href: VINE_LAYERZERO },
     ],
   },
@@ -329,7 +329,7 @@ const LIQUIDITY: { chain: string; intro: string; rows: [string, string][]; flag?
     intro:
       "Solana liquidity is extremely thin. Even a modest order size returns an impact figure that makes the swap uneconomic.",
     pool:
-      "Current trading pool: wSOL/RBNT on Raydium — 9oTcYnRPsSVaZFk6n85ADjQRKc9m8h1bZPycXv6gPBkR",
+      "Current trading pool: wSOL/RBNT on Raydium - 9oTcYnRPsSVaZFk6n85ADjQRKc9m8h1bZPycXv6gPBkR",
     rows: [["10,000 WRBNT", "86.77%"]],
     flag: "86.77%",
   },
@@ -385,7 +385,7 @@ const CEX_WRITEUPS = [
   {
     name: "BYDFI",
     href: "https://bydfi.com/en/support",
-    body: "No form — everything goes through Customer Support. Screen order: profile icon → note your UID → search bar → look up your TXID or address → copy the TxHash → open a support ticket with TxHash, UID, token, and amount. No fee stated.",
+    body: "No form - everything goes through Customer Support. Screen order: profile icon → note your UID → search bar → look up your TXID or address → copy the TxHash → open a support ticket with TxHash, UID, token, and amount. No fee stated.",
   },
   {
     name: "WHITEBIT",
@@ -660,7 +660,7 @@ function Playbook() {
                   <p>
                     Compare the token contract in your wallet against Table A, character by
                     character. A wrapped token showing zero value is very often the wrong contract
-                    rather than a broken one. On BNB Chain there is no official token at all —
+                    rather than a broken one. On BNB Chain there is no official token at all -
                     Redbelly's own team confirmed this directly in their{" "}
                     <A href={DISCORD_SUPPORT}>Discord support channel</A>: "We never had rbnt on bsc.
                     All RBNT on bsc is fake." Any RBNT-looking asset there is an impersonator with no
@@ -669,11 +669,11 @@ function Playbook() {
                   <img
                     src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/appie.jpg"
                     alt="Redbelly team Discord message confirming no RBNT exists on BNB Chain"
-                    className="mt-2 w-full max-w-md rounded-[8px] border border-[#3a4650]"
+                    className="mt-2 w-full max-w-[600px] rounded-[8px] border border-[#3a4650]"
                     loading="lazy"
                   />
                   <p className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                    Redbelly team, official Discord, 2 Nov 2025 — 'We never had rbnt on bsc. All RBNT on
+                    Redbelly team, official Discord, 2 Nov 2025 - 'We never had rbnt on bsc. All RBNT on
                     bsc is fake.'
                   </p>
                 </Step>
@@ -747,14 +747,14 @@ function Playbook() {
               </TablePanel>
               <P>
                 Checked live against both Lucid Labs Bridge and Oku (oku.trade), a separate frontend
-                for the same LayerZero route — fee and time matched closely on both.
+                for the same LayerZero route - fee and time matched closely on both.
               </P>
               <p className="text-[16px]">
                 <A href="https://bridge.lucidlabs.fi/">Recovery process</A>
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-6">
               <figure>
                 <img
                   src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/connect%20wallet.jpg"
@@ -774,7 +774,7 @@ function Playbook() {
                   loading="lazy"
                 />
                 <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                  Wallet picker — EVM, Solana, and Tron wallets
+                  Wallet picker - EVM, Solana, and Tron wallets
                 </figcaption>
               </figure>
               <figure>
@@ -785,7 +785,7 @@ function Playbook() {
                   loading="lazy"
                 />
                 <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                  Solana selected as source — no route found, confirms the two-hop limitation above
+                  Solana selected as source - no route found, confirms the two-hop limitation above
                 </figcaption>
               </figure>
               <figure>
@@ -801,7 +801,7 @@ function Playbook() {
               </figure>
             </div>
             <p className="text-[16px]">
-              Full evidence: all chains, both tools —{" "}
+              Full evidence: all chains, both tools -{" "}
               <A href="https://github.com/0xDarkSeidBull/daotask16/tree/main/evidence">
                 Lucid Labs screenshots
               </A>{" "}
