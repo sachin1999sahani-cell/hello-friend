@@ -666,16 +666,16 @@ function Playbook() {
                     All RBNT on bsc is fake." Any RBNT-looking asset there is an impersonator with no
                     recoverable value.
                   </p>
+                  <p className="text-[15px] font-bold underline text-[#cfd8df]">
+                    Redbelly team, official Discord, 2 Nov 2025 - 'We never had rbnt on bsc. All RBNT on
+                    bsc is fake.'
+                  </p>
                   <img
                     src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/appie.jpg"
                     alt="Redbelly team Discord message confirming no RBNT exists on BNB Chain"
                     className="mt-2 w-full max-w-[600px] rounded-[8px] border border-[#3a4650]"
                     loading="lazy"
                   />
-                  <p className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                    Redbelly team, official Discord, 2 Nov 2025 - 'We never had rbnt on bsc. All RBNT on
-                    bsc is fake.'
-                  </p>
                 </Step>
                 <Step n={2} title="Check pool depth before swapping">
                   <p>
@@ -755,49 +755,49 @@ function Playbook() {
             </div>
 
             <div className="space-y-6">
-              <figure>
+              <figure className="space-y-2">
+                <figcaption className="text-[15px] font-bold underline text-[#cfd8df]">
+                  Lucid Labs Bridge, pre-connect state
+                </figcaption>
                 <img
                   src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/connect%20wallet.jpg"
                   alt="Lucid Labs Bridge pre-connect wallet screen"
                   className="w-full rounded-[8px] border border-[#3a4650]"
                   loading="lazy"
                 />
-                <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                  Lucid Labs Bridge, pre-connect state
-                </figcaption>
               </figure>
-              <figure>
+              <figure className="space-y-2">
+                <figcaption className="text-[15px] font-bold underline text-[#cfd8df]">
+                  Wallet picker - EVM, Solana, and Tron wallets
+                </figcaption>
                 <img
                   src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/choose_wallet.png"
                   alt="Wallet picker showing EVM, Solana, and Tron wallet options"
                   className="w-full rounded-[8px] border border-[#3a4650]"
                   loading="lazy"
                 />
-                <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                  Wallet picker - EVM, Solana, and Tron wallets
-                </figcaption>
               </figure>
-              <figure>
+              <figure className="space-y-2">
+                <figcaption className="text-[15px] font-bold underline text-[#cfd8df]">
+                  Solana selected as source - no route found, confirms the two-hop limitation above
+                </figcaption>
                 <img
                   src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/solana%20to%20redbelly.png"
                   alt="Solana selected as source chain with no route found to Redbelly"
                   className="w-full rounded-[8px] border border-[#3a4650]"
                   loading="lazy"
                 />
-                <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                  Solana selected as source - no route found, confirms the two-hop limitation above
-                </figcaption>
               </figure>
-              <figure>
+              <figure className="space-y-2">
+                <figcaption className="text-[15px] font-bold underline text-[#cfd8df]">
+                  Oku (oku.trade), the cross-check tool, wallet connect screen
+                </figcaption>
                 <img
                   src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence2/wallet_connect.png"
                   alt="Oku trade wallet connect screen used as cross-check tool"
                   className="w-full rounded-[8px] border border-[#3a4650]"
                   loading="lazy"
                 />
-                <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                  Oku (oku.trade), the cross-check tool, wallet connect screen
-                </figcaption>
               </figure>
             </div>
             <p className="text-[16px]">
