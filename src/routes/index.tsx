@@ -410,7 +410,13 @@ function Playbook() {
               className="block h-10 w-auto shrink-0"
             />
           </a>
-          <ul className="flex flex-wrap gap-x-5 gap-y-1 text-[14px] text-[#b8c4cc]">
+          <Link
+            to="/proof"
+            className="ml-auto inline-flex items-center rounded-[6px] border border-[#EF5350] bg-[#EF5350] px-4 py-1.5 text-[13px] font-semibold text-white transition-colors hover:bg-[#d8413e]"
+          >
+            Proof
+          </Link>
+          <ul className="flex w-full flex-wrap gap-x-5 gap-y-1 text-[14px] text-[#b8c4cc]">
             {NAV.map((item) => (
               <li key={item.id}>
                 <a
@@ -422,12 +428,6 @@ function Playbook() {
               </li>
             ))}
           </ul>
-          <Link
-            to="/proof"
-            className="ml-auto inline-flex items-center rounded-[6px] border border-[#EF5350] bg-[#EF5350] px-4 py-1.5 text-[13px] font-semibold text-white transition-colors hover:bg-[#d8413e]"
-          >
-            Proof
-          </Link>
         </nav>
       </header>
 
