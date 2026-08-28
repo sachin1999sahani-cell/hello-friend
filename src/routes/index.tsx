@@ -422,6 +422,12 @@ function Playbook() {
               </li>
             ))}
           </ul>
+          <Link
+            to="/proof"
+            className="ml-auto inline-flex items-center rounded-[6px] border border-[#EF5350] bg-[#EF5350] px-4 py-1.5 text-[13px] font-semibold text-white transition-colors hover:bg-[#d8413e]"
+          >
+            Proof
+          </Link>
         </nav>
       </header>
 
