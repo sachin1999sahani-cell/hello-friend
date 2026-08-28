@@ -6,9 +6,9 @@ import { DevToIcon, DocsIcon, GithubIcon, PdfIcon } from "@/components/doc-icons
 const LOGO = "/dao-logo-on-dark.png";
 const REPO = "https://github.com/0xDarkSeidBull/dao-redbelly";
 const PDF =
-  "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/daotask16@main/Unstick_Your_RBNT_Recovery_Playbook_BrandKit.pdf";
+  "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/daotask16@main/rbnt_recovery.pdf";
 const DOCX =
-  "https://docs.google.com/viewer?url=https%3A%2F%2Fraw.githubusercontent.com%2F0xDarkSeidBull%2Fdaotask16%2Fmain%2FUnstick_Your_RBNT_Recovery_Playbook_BrandKit.docx&embedded=false";
+  "https://docs.google.com/viewer?url=https%3A%2F%2Fraw.githubusercontent.com%2F0xDarkSeidBull%2Fdaotask16%2Fmain%2Frbnt_recovery.docx&embedded=false";
 const ARTICLE =
   "https://dev.to/0xdarkseidbull/unstick-your-rbnt-building-a-recovery-playbook-nobody-wants-to-need-3aka";
 const GITHUB_REPO = "https://github.com/0xDarkSeidBull/daotask16/";
@@ -135,6 +135,24 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
   );
 }
 
+type SourceSeg = { text: string } | { label: string; href: string };
+
+function SourceCell({ segs }: { segs: SourceSeg[] }) {
+  return (
+    <>
+      {segs.map((seg, i) =>
+        "text" in seg ? (
+          <span key={i}>{seg.text}</span>
+        ) : (
+          <A key={i} href={seg.href}>
+            {seg.label}
+          </A>
+        ),
+      )}
+    </>
+  );
+}
+
 function Th({ children }: { children: React.ReactNode }) {
   return (
     <th className="bg-[#1b252a] px-4 py-3 text-left font-sans text-[12px] font-bold tracking-[0.1em] text-[#93a4ae] uppercase">
@@ -204,8 +222,15 @@ function Step({ n, title, children }: { n: number; title: string; children: Reac
 
 const ETH = "0xb45ffb51984d626ee758b336c61cf20990c6bf13";
 const BASE = "0x020940df9F5E77338a094D55b5B5914122a804A5";
-const SOL = "2GBVt2ENvbHepuJMWYTPkkfpWUabAhsaXToYw8UphxS3";
+const SOL = "AKbyFYEgueHwS7V4S3gXsWpGJZvv3f7WMkRMFdrenSG1";
 const RBN = "0x6ed1F491e2d31536D6561f6bdB2AdC8F092a6076";
+
+const DISCORD_ANNOUNCE =
+  "https://discord.com/channels/969088176322908160/969088176515854341/1508738455767879711";
+const DISCORD_SUPPORT =
+  "https://discord.com/channels/969088176322908160/969088176515854341";
+const VINE_LAYERZERO = "https://vine.redbelly.network/bridged-tokens/layerzero";
+const VINE_LUCID = "https://vine.redbelly.network/bridged-tokens/lucidlabs";
 
 const GATE =
   "https://www.gate.com/help/guide/deposit_withdrawa/26321/how-to-submit-a-retri_-application";
@@ -242,26 +267,54 @@ const CONTRACT_ROWS: {
   chain: string;
   address: string;
   level: "High" | "Medium" | "Absent";
-  source: string;
+  source: SourceSeg[];
 }[] = [
-  { chain: "Ethereum", address: ETH, level: "High", source: "Redbelly's own X post" },
-  { chain: "Solana", address: SOL, level: "High", source: "Redbelly's own X post" },
+  {
+    chain: "Ethereum",
+    address: ETH,
+    level: "High",
+    source: [
+      { label: "Redbelly Network on X", href: "https://x.com/RedbellyNetwork/status/1890340030197166112" },
+    ],
+  },
+  {
+    chain: "Solana",
+    address: SOL,
+    level: "High",
+    source: [
+      { text: "Redbelly team, " },
+      { label: "official Discord announcement", href: DISCORD_ANNOUNCE },
+      { text: ", 26 May 2026 — also listed on " },
+      { label: "Vine", href: VINE_LAYERZERO },
+    ],
+  },
   {
     chain: "Redbelly Network (native)",
     address: RBN,
     level: "High",
-    source: "Redbelly's own Medium blog",
+    source: [
+      { label: "How To Claim Your RBNT Rewards (Medium)", href: "https://medium.com/@redbellyblockchain" },
+    ],
   },
-  { chain: "Base", address: BASE, level: "Medium", source: "Redbelly developer docs" },
+  {
+    chain: "Base",
+    address: BASE,
+    level: "Medium",
+    source: [{ label: "Lucid Labs bridged tokens on Vine", href: VINE_LUCID }],
+  },
   {
     chain: "BNB Chain",
     address: "No official token exists",
     level: "Absent",
-    source: "Confirmed absent, do not trust any RBNT token found here",
+    source: [
+      { text: "Confirmed absent. Redbelly team, " },
+      { label: "official Discord support channel", href: DISCORD_SUPPORT },
+      { text: ', 2 Nov 2025: "We never had rbnt on bsc. All RBNT on bsc is fake." Multiple impersonator tokens circulate, none affiliated with Redbelly.' },
+    ],
   },
 ];
 
-const LIQUIDITY: { chain: string; intro: string; rows: [string, string][]; flag?: string }[] = [
+const LIQUIDITY: { chain: string; intro: string; rows: [string, string][]; flag?: string; pool?: string }[] = [
   {
     chain: "Ethereum",
     intro:
@@ -275,6 +328,8 @@ const LIQUIDITY: { chain: string; intro: string; rows: [string, string][]; flag?
     chain: "Solana",
     intro:
       "Solana liquidity is extremely thin. Even a modest order size returns an impact figure that makes the swap uneconomic.",
+    pool:
+      "Current trading pool: wSOL/RBNT on Raydium — 9oTcYnRPsSVaZFk6n85ADjQRKc9m8h1bZPycXv6gPBkR",
     rows: [["10,000 WRBNT", "86.77%"]],
     flag: "86.77%",
   },
@@ -297,20 +352,21 @@ const BRIDGE_ROUTES: {
   time: string;
   warn?: boolean;
 }[] = [
-  { source: "Ethereum", asset: "WRBNT", route: "Lucid Labs Bridge", fee: "1%", time: "Minutes" },
-  { source: "Base", asset: "RBNT", route: "Lucid Labs Bridge", fee: "1%", time: "Minutes" },
-  { source: "Arbitrum", asset: "WRBNT", route: "Lucid Labs Bridge", fee: "1%", time: "Minutes" },
-  { source: "Optimism", asset: "WRBNT", route: "Lucid Labs Bridge", fee: "1%", time: "Minutes" },
-  { source: "BSC", asset: "WRBNT", route: "Lucid Labs Bridge", fee: "1%", time: "Minutes" },
-  { source: "Polygon", asset: "WRBNT", route: "Lucid Labs Bridge", fee: "1%", time: "Minutes" },
-  { source: "Avalanche", asset: "WRBNT", route: "Lucid Labs Bridge", fee: "1%", time: "Minutes" },
-  { source: "Sonic", asset: "WRBNT", route: "Lucid Labs Bridge", fee: "1%", time: "Minutes" },
+  { source: "Ethereum", asset: "RBNT", route: "Stargate via Lucid Labs Bridge", fee: "0.00013 ETH (~$0.31)", time: "~4 min" },
+  { source: "Ethereum", asset: "WRBNT", route: "Polymer via Lucid Labs Bridge", fee: "0.000015 ETH + 10 WRBNT fee", time: "~2 min" },
+  { source: "Base", asset: "RBNT", route: "Stargate via Lucid Labs Bridge", fee: "0.00013 ETH (~$0.32)", time: "~1 min" },
+  { source: "Base", asset: "WRBNT", route: "Polymer via Lucid Labs Bridge", fee: "0.000015 ETH + 10 WRBNT fee", time: "~10 sec" },
+  { source: "BSC", asset: "RBNT", route: "Stargate via Lucid Labs Bridge", fee: "0.00044 BNB (~$0.31)", time: "~124 min" },
+  { source: "Arbitrum", asset: "RBNT", route: "Stargate via Lucid Labs Bridge", fee: "0.00013 ETH (~$0.31)", time: "~172 min" },
+  { source: "Polygon", asset: "RBNT", route: "Stargate via Lucid Labs Bridge", fee: "3.02 POL (~$0.32)", time: "~176 min" },
+  { source: "Avalanche", asset: "RBNT", route: "Stargate via Lucid Labs Bridge", fee: "0.04 AVAX (~$0.32)", time: "~61 min" },
+  { source: "Sonic", asset: "RBNT", route: "Stargate via Lucid Labs Bridge", fee: "10.62 S (~$0.31)", time: "~86 min" },
   {
     source: "Solana",
-    asset: "WRBNT",
-    route: "No route available",
-    fee: "n/a",
-    time: "n/a",
+    asset: "RBNT",
+    route: "No route on the single widget, two-hop route exists",
+    fee: "N/A",
+    time: "N/A",
     warn: true,
   },
 ];
@@ -318,23 +374,23 @@ const BRIDGE_ROUTES: {
 const CEX_WRITEUPS = [
   {
     name: "GATE",
-    href: GATE,
-    body: "Gate runs a self service retrieval application. You submit the transaction hash, the deposit address and your account details yourself, and the request enters the queue without a support agent needing to open it for you. This is the strongest of the four processes.",
+    href: "https://www.gate.com/help",
+    body: "The tool is called Token Recovery. Screen order: Recent Deposits → find the TXID → confirm the address belongs to Gate → open Token Recovery → check if your chain is listed → Apply for Recovery. Flat 20 USDT fee from your Spot balance, charged whether or not it succeeds.",
   },
   {
     name: "MEXC",
-    href: MEXC,
-    body: "MEXC operates an uncredited deposit return application. A processing fee applies, and returned funds go back to the address that sent them, not to your exchange balance. Submit the application once and wait for the result rather than filing duplicates.",
+    href: "https://www.mexc.com/support",
+    body: "The tool is the Uncredited Deposit Return Application, under Wallets → Funding History. Fill in TXID, network, asset, amount, and a screenshot of the deposit source. Funds are returned to your original sending address, not credited as a tradable MEXC balance. Review takes 1-2 business days.",
   },
   {
     name: "BYDFI",
-    href: BYDFI,
-    body: "BYDFi has no self service form. Recovery runs through a support ticket, and the ticket is only actionable if you include the transaction hash and your account UID. Expect a slower turnaround than the self service exchanges.",
+    href: "https://bydfi.com/en/support",
+    body: "No form — everything goes through Customer Support. Screen order: profile icon → note your UID → search bar → look up your TXID or address → copy the TxHash → open a support ticket with TxHash, UID, token, and amount. No fee stated.",
   },
   {
     name: "WHITEBIT",
-    href: WHITEBIT,
-    body: "WhiteBIT offers only a general support request. There is no dedicated recovery tool, and WhiteBIT states that incorrectly made deposits may be irreversibly lost. Submit a ticket with full evidence, but treat the outcome as uncertain.",
+    href: "https://help.whitebit.com",
+    body: "No dedicated tool. Contact support directly: email support@whitebit.com, live chat (bottom-right on whitebit.com), or a ticket through their Help Center. Provide TXID, network, asset, and account details.",
   },
 ];
 
@@ -552,7 +608,7 @@ function Playbook() {
                           {row.level === "Absent" ? "No token" : row.level}
                         </span>
                       </Td>
-                      <Td>{row.source}</Td>
+                      <Td><SourceCell segs={row.source} /></Td>
                     </tr>
                   ))}
                 </tbody>
@@ -565,6 +621,11 @@ function Playbook() {
                 <div key={g.chain} className="space-y-4">
                   <h4 className="text-[18px] font-semibold text-[#e4ebf0]">{g.chain}</h4>
                   <P>{g.intro}</P>
+                  {g.pool ? (
+                    <P>
+                      <span className="font-mono text-[#e4ebf0]">{g.pool}</span>
+                    </P>
+                  ) : null}
                   <TablePanel>
                     <thead>
                       <tr>
@@ -599,8 +660,11 @@ function Playbook() {
                   <p>
                     Compare the token contract in your wallet against Table A, character by
                     character. A wrapped token showing zero value is very often the wrong contract
-                    rather than a broken one. On BNB Chain there is no official token at all, so any
-                    RBNT looking asset there is an impersonator with no recoverable value.
+                    rather than a broken one. On BNB Chain there is no official token at all —
+                    Redbelly's own team confirmed this directly in their{" "}
+                    <A href={DISCORD_SUPPORT}>Discord support channel</A>: "We never had rbnt on bsc.
+                    All RBNT on bsc is fake." Any RBNT-looking asset there is an impersonator with no
+                    recoverable value.
                   </p>
                 </Step>
                 <Step n={2} title="Check pool depth before swapping">
@@ -652,7 +716,7 @@ function Playbook() {
                 </thead>
                 <tbody>
                   {BRIDGE_ROUTES.map((r) => (
-                    <tr key={r.source}>
+                    <tr key={`${r.source}-${r.asset}`}>
                       <Td className={r.warn ? "text-[#ffb3ae]" : "text-[#e4ebf0]"}>
                         <span className="inline-flex items-center gap-2">
                           {r.warn && (
@@ -671,6 +735,13 @@ function Playbook() {
                   ))}
                 </tbody>
               </TablePanel>
+              <P>
+                Checked live against both Lucid Labs Bridge and Oku (oku.trade), a separate frontend
+                for the same LayerZero route — fee and time matched closely on both.
+              </P>
+              <p className="text-[16px]">
+                <A href="https://bridge.lucidlabs.fi/">Recovery process</A>
+              </p>
             </div>
 
             <Card>
@@ -681,8 +752,11 @@ function Playbook() {
                   broken.
                 </li>
                 <li>
-                  Treat Solana as unresolvable for now. There is no supported route back to Redbelly
-                  Network from Solana at the time of checking.
+                  Redbelly's team confirmed directly (<A href={DISCORD_ANNOUNCE}>Discord</A>, 26 May
+                  2026) there is no single-step bridge between Solana and Redbelly Network. The route
+                  is two hops: bridge RBNT from Redbelly Network to an EVM chain like Ethereum or Base
+                  via Lucid Labs Bridge or Oku, then use Stargate separately to bridge into Solana.
+                  Same path in reverse to bring it back.
                 </li>
                 <li>
                   Do not repeatedly retry. Each attempt costs gas and returns the same result. Check{" "}
