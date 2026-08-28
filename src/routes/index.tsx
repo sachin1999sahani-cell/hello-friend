@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { AlertTriangle, Check, Copy, ExternalLink, Heart } from "lucide-react";
 import { DevToIcon, DocsIcon, GithubIcon, PdfIcon } from "@/components/doc-icons";
@@ -422,6 +422,12 @@ function Playbook() {
               </li>
             ))}
           </ul>
+          <Link
+            to="/proof"
+            className="ml-auto inline-flex items-center rounded-[6px] border border-[#EF5350] bg-[#EF5350] px-4 py-1.5 text-[13px] font-semibold text-white transition-colors hover:bg-[#d8413e]"
+          >
+            Proof
+          </Link>
         </nav>
       </header>
 
