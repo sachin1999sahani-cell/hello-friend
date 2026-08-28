@@ -666,6 +666,16 @@ function Playbook() {
                     All RBNT on bsc is fake." Any RBNT-looking asset there is an impersonator with no
                     recoverable value.
                   </p>
+                  <img
+                    src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/appie.jpg"
+                    alt="Redbelly team Discord message confirming no RBNT exists on BNB Chain"
+                    className="mt-2 w-full max-w-md rounded-[8px] border border-[#3a4650]"
+                    loading="lazy"
+                  />
+                  <p className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
+                    Redbelly team, official Discord, 2 Nov 2025 — 'We never had rbnt on bsc. All RBNT on
+                    bsc is fake.'
+                  </p>
                 </Step>
                 <Step n={2} title="Check pool depth before swapping">
                   <p>
@@ -743,6 +753,63 @@ function Playbook() {
                 <A href="https://bridge.lucidlabs.fi/">Recovery process</A>
               </p>
             </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <figure>
+                <img
+                  src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/connect%20wallet.jpg"
+                  alt="Lucid Labs Bridge pre-connect wallet screen"
+                  className="w-full rounded-[8px] border border-[#3a4650]"
+                  loading="lazy"
+                />
+                <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
+                  Lucid Labs Bridge, pre-connect state
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/choose_wallet.png"
+                  alt="Wallet picker showing EVM, Solana, and Tron wallet options"
+                  className="w-full rounded-[8px] border border-[#3a4650]"
+                  loading="lazy"
+                />
+                <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
+                  Wallet picker — EVM, Solana, and Tron wallets
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/solana%20to%20redbelly.png"
+                  alt="Solana selected as source chain with no route found to Redbelly"
+                  className="w-full rounded-[8px] border border-[#3a4650]"
+                  loading="lazy"
+                />
+                <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
+                  Solana selected as source — no route found, confirms the two-hop limitation above
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence2/wallet_connect.png"
+                  alt="Oku trade wallet connect screen used as cross-check tool"
+                  className="w-full rounded-[8px] border border-[#3a4650]"
+                  loading="lazy"
+                />
+                <figcaption className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
+                  Oku (oku.trade), the cross-check tool, wallet connect screen
+                </figcaption>
+              </figure>
+            </div>
+            <p className="text-[16px]">
+              Full evidence: all chains, both tools —{" "}
+              <A href="https://github.com/0xDarkSeidBull/daotask16/tree/main/evidence">
+                Lucid Labs screenshots
+              </A>{" "}
+              ·{" "}
+              <A href="https://github.com/0xDarkSeidBull/daotask16/tree/main/evidence2">
+                Oku screenshots
+              </A>
+            </p>
 
             <Card>
               <Sub>What to do</Sub>
