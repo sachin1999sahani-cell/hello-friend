@@ -666,16 +666,16 @@ function Playbook() {
                     All RBNT on bsc is fake." Any RBNT-looking asset there is an impersonator with no
                     recoverable value.
                   </p>
+                  <p className="text-[15px] font-bold underline text-[#cfd8df]">
+                    Redbelly team, official Discord, 2 Nov 2025 - 'We never had rbnt on bsc. All RBNT on
+                    bsc is fake.'
+                  </p>
                   <img
                     src="https://raw.githubusercontent.com/0xDarkSeidBull/daotask16/main/evidence/appie.jpg"
                     alt="Redbelly team Discord message confirming no RBNT exists on BNB Chain"
                     className="mt-2 w-full max-w-[600px] rounded-[8px] border border-[#3a4650]"
                     loading="lazy"
                   />
-                  <p className="mt-2 text-[14px] leading-[1.5] text-[#93a4ae]">
-                    Redbelly team, official Discord, 2 Nov 2025 - 'We never had rbnt on bsc. All RBNT on
-                    bsc is fake.'
-                  </p>
                 </Step>
                 <Step n={2} title="Check pool depth before swapping">
                   <p>
